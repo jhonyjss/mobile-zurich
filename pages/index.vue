@@ -29,6 +29,6 @@ export default {
 </script>
 <style lang="postcss" scoped>
 .main-wrapper {
-  @apply p-0 bg-gradient-to-r from-[#EBF4FF] to-[#E6FFFA] h-screen max-h-screen;
+  @apply p-0 bg-gradient-to-r from-[#EBF4FF] to-[#E6FFFA] h-screen max-h-screen overflow-x-hidden;
 }
 </style>

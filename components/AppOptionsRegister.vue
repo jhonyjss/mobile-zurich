@@ -1,5 +1,5 @@
 <template>
-  <ul id="app-options-register" class="px-4 flex rounded-lg sm:flex my-5">
+  <ul id="app-options-register" class="px-4 flex rounded-lg sm:flex py-5">
     <li class="w-full">
       <a
         href="javascript:void(0);"

@@ -10,7 +10,10 @@
       />
     </div>
     <!-- Card Layer -->
-    <div id="card-layer" class="flex flex-col justify-center items-center">
+    <div
+      id="hero-card-layer"
+      class="flex flex-col justify-center items-center relative"
+    >
       <nuxt-link to="/">Kostenlos Registrieren</nuxt-link>
     </div>
     <hr />
@@ -26,7 +29,10 @@ export default {}
   h1 {
     @apply text-5xl text-center p-8 leading-tight text-[#2D3748];
   }
-  #card-layer {
+  img {
+    transform: scale(1.1);
+  }
+  #hero-card-layer {
     @apply container mx-auto px-4 h-32 rounded-t-2xl shadow-2xl bg-white z-20;
     box-shadow: 0px -6px 5px -7px #2d3748;
     a.nuxt-link-exact-active {
