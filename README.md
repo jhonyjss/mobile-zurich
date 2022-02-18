@@ -1,4 +1,4 @@
-# thomas
+# This is a project based on front end test from Zurich using Nuxt and Tailwind
 
 ## Build Setup
 
