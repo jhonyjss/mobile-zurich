@@ -18,7 +18,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~/assets/css/tailwind.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -30,14 +30,19 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxt/postcss8',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
   ],
-
+  webfontloader: {
+    google: {
+      families: ['Lato:400,700'],
+    },
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'nuxt-webfontloader',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -46,7 +51,41 @@ export default {
       lang: 'en',
     },
   },
+  babel: {
+    presets(env, [preset, options]) {
+      return [['@nuxt/babel-preset-app', options]]
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    babel: {
+      // envName: server, client, modern
+      presets({ envName }) {
+        return [
+          [
+            '@nuxt/babel-preset-app',
+            {
+              corejs: { version: 3 },
+            },
+          ],
+        ]
+      },
+    },
+    cache: false,
+    parallel: false,
+    // hardSource: true,
+    postcss: {
+      plugins: {
+        'postcss-import': true,
+        'tailwindcss/nesting': {},
+        'postcss-nested': {},
+        'postcss-pxtorem': {
+          propList: ['*', '!border*'],
+        },
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+  },
 }
